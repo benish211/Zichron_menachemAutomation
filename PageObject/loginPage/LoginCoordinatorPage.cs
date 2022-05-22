@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace InfrastructureAutomationLogin.PageObject
 {
-    public class LoginPage
+    public class LoginCoordinatorPage
     {
-        By buttonLoginBy = By.Id("buttonLogIn");
-        By userNameBy = By.Id("Username");
-        By passwordBy = By.Id("Password");
+        By buttonLoginBy = By.XPath("//div[@class='Button_buttonText__gCGff']");
+        By userNameBy = By.XPath("//input[@id='mui-1']");
+        By passwordBy = By.XPath("//input[@id='mui-2']");
 
         IWebDriver _driver;
-        public LoginPage(IWebDriver driver)
+        public LoginCoordinatorPage(IWebDriver driver)
         {
             _driver = driver;
         }

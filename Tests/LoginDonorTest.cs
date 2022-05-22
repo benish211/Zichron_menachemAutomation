@@ -9,27 +9,43 @@ using Test.Tests;
 namespace InfrastructureAutomationLogin.Tests
 {
     [TestFixture]
-    public class LoginTest : WebDriverFactory
+    public class LoginDonorTest : WebDriverFactory
     {
+
         LoginFlow loginFlow;
 
+        
+        [SetUp]
+        public void BeforTest()
+        {
 
+        }
 
         [Test]
         //login as an admin
-        public void _LoginTest()
+        public void _LoginDonorTest()
         {
             
             //Setting up and initializing the drivers -- should to move intu base driver
             //ChromeOptions chromeFunctions = new ChromeOptions();
-            driver.Navigate().GoToUrl("https://packlogin.lightico.com/");
+            driver.Navigate().GoToUrl("https://zm-donor-qa.web.app/login");
 
             loginFlow = new LoginFlow(driver);
-            loginFlow.Login("bennys4@lightico.com", "Aa123456");
+            loginFlow.LoginDonor("tsg.benish@gmail.com", "qw762031");
 
+
+            bool isLoginSUccedd= 
+                loginFlow.isloginSuccess();
+
+            Assert.True(isLoginSUccedd,
+                "The login is success",
+                "Login dont success- icon isnt display");
+        }
+        
+        public void AfterTest()
+        {
             driver.Close();
         }
-
 
     }
 }

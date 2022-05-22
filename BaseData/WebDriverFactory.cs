@@ -3,6 +3,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using System;
+using System.Text;
 
 namespace Test.Tests
 {
@@ -13,14 +15,17 @@ namespace Test.Tests
     {
         // public  IWebDriver driver;
         public IWebDriver driver;
+      
 
         public  WebDriverFactory()
         {
 
             driver = WebDriver(BrowserType.Chrome);
 
+           
         }
 
+        
 
 
         /// <summary>
@@ -88,7 +93,7 @@ namespace Test.Tests
         private static IWebDriver ChromeDriver()
         {
             //ChromeOptions chromeOptions = new ChromeOptions();
-            IWebDriver driver = new ChromeDriver("D:/Benny/Automation/tools");
+            IWebDriver driver = new ChromeDriver();
 
             return driver;
         }
