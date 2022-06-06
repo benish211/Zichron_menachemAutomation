@@ -23,19 +23,10 @@ namespace InfrastructureAutomationLogin.Tests
         //login as an admin
         public void _LoginCoordinatorTest()
         {
-            loginFlow = new LoginFlow(driver);
-            //Setting up and initializing the drivers -- should to move intu base driver
-            //ChromeOptions chromeFunctions = new ChromeOptions();
-            driver.Navigate().GoToUrl("https://zm-admin-qa.web.app/");
+            loginFlow = new LoginFlow(driver);            
 
-            loginFlow.LoginCoordinator("ben1@g.com", "123456");
+            loginFlow.LoginCoordinator("tsg.benish@gmail.com", "qw762031");
 
-            bool isLoginSUccedd =
-                loginFlow.isloginSuccess();
-
-            Assert.True(isLoginSUccedd,
-                "The login is success",
-                "Login dont success- icon isnt display");
         }
 
         public void AfterTest()

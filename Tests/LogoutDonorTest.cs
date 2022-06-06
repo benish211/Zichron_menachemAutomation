@@ -9,7 +9,7 @@ using Test.Tests;
 namespace InfrastructureAutomationLogin.Tests
 {
     [TestFixture]
-    public class LoginDonorTest : WebDriverFactory
+    public class LogoutDonorTest : WebDriverFactory
     {
 
         LoginFlow loginFlow;
@@ -24,9 +24,9 @@ namespace InfrastructureAutomationLogin.Tests
 
         [Test]
         //login as an admin
-        public void _LoginDonorTest()
+        public void _LogoutDonorTest()
         {
-            
+
             //Setting up and initializing the drivers -- should to move intu base driver
             //ChromeOptions chromeFunctions = new ChromeOptions();
 
@@ -34,14 +34,16 @@ namespace InfrastructureAutomationLogin.Tests
             loginFlow.LoginDonor(donorGmail, donorGmailPasswor);
 
 
-            bool isLoginSUccedd= 
+            bool isLoginSUccedd =
                 loginFlow.isloginDonorSuccess();
 
             Assert.True(isLoginSUccedd,
                 "The login is success",
                 "Login dont success- icon isnt display");
+
+            loginFlow.LogoutDonor();
         }
-        
+
         public void AfterTest()
         {
             driver.Close();

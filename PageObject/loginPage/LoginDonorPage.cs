@@ -10,8 +10,8 @@ namespace InfrastructureAutomationLogin.PageObject
     public class LoginDonorPage
     {
         By buttonLoginBy = By.XPath("//*[contains(text(),'התחברות')]");
-        By userNameBy = By.XPath("//input[@id='mui-1']");
-        By passwordBy = By.XPath("//input[@id='mui-2']");
+        By LoginEmailFeildBy = By.XPath("//input[@type='email']");
+        By LoginPasswordFeildBy = By.XPath("//input[@type='password']");
         By IconBy = By.Id("lottie");
 
         IWebDriver _driver;
@@ -21,12 +21,12 @@ namespace InfrastructureAutomationLogin.PageObject
         }
         public void SendUsername(string username)
         {
-            _driver.FindElement(userNameBy).SendKeys(username);
+            _driver.FindElement(LoginEmailFeildBy).SendKeys(username);
 
         }
         public void SendSendPassword(string password)
         {
-            _driver.FindElement(passwordBy).SendKeys(password);
+            _driver.FindElement(LoginPasswordFeildBy).SendKeys(password);
 
         }
         public void ClickLogin()
@@ -37,8 +37,11 @@ namespace InfrastructureAutomationLogin.PageObject
 
         public bool isIconDispay()
         {
-            _driver.FindElement(By.Id("lottie"));
+            _driver.FindElement(By.XPath("//img[@alt='Blood Bank']"));
             return true;
         }
+
+        
+
     }
 }

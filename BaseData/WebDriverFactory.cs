@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using System;
+using System.Drawing;
 using System.Text;
 
 namespace Test.Tests
@@ -21,11 +22,12 @@ namespace Test.Tests
         {
 
             driver = WebDriver(BrowserType.Chrome);
+            driver.Manage().Window.Size = new Size(1920, 1080);
 
-           
+
         }
 
-        
+
 
 
         /// <summary>
@@ -101,7 +103,7 @@ namespace Test.Tests
         [TearDown]
         public void TestFixtureTearnDown()
         {
-            driver.Quit();
+            //driver.Quit();
         }
 
 
