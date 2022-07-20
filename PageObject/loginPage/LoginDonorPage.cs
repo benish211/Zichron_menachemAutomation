@@ -39,9 +39,6 @@ namespace InfrastructureAutomationLogin.PageObject
         {
             _driver.FindElement(By.XPath("//img[@alt='Blood Bank']"));
             return true;
-        }
-
-        
-
+        }       
     }
 }

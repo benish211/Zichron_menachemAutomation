@@ -95,7 +95,7 @@ namespace Test.Tests
         private static IWebDriver ChromeDriver()
         {
             //ChromeOptions chromeOptions = new ChromeOptions();
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new ChromeDriver($"D:/Benny/Automation/tools");
 
             return driver;
         }
