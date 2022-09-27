@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using InfrastructureAutomationLogin.BaseData;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ZichronMenachemAutomation.PageObject.RegistarPages
 {
-    public class DonorRegistarPages
+    public class DonorRegistarPages : BasePage
     {
         By EntryButtonBy = By.XPath("//p[@class='style_login_text__nKU2Q']");
         By RegistryButtonBy = By.XPath("//div[@class='SignInScreen_alternativeButton__qUz7F Button_textButton__2L3VZ']");
@@ -33,57 +34,62 @@ namespace ZichronMenachemAutomation.PageObject.RegistarPages
 
 
         OpenQA.Selenium.IWebDriver _driver;
-        public DonorRegistarPages(IWebDriver driver)
+        public DonorRegistarPages(IWebDriver driver) : base(driver)
         {
             _driver = driver;
             { }
         }
-    
+
         public void ClickEntryButton()
     {
-        _driver.FindElement(EntryButtonBy).Click();
+
+            click(EntryButtonBy);
 
     }
         public void ClickRegistarButton()
         {
-            _driver.FindElement(RegistryButtonBy).Click();
+            click(RegistryButtonBy);
         }
 
         //input user data
         public void SendDonorEmail(string donorEmail)
         {
-            _driver.FindElement(RegistarEmailFeildBy).SendKeys(donorEmail);
+            fillText(RegistarEmailFeildBy, donorEmail);
+            
 
         }
         public void SendDonorPassword(string donorPassword)
         {
-            _driver.FindElement(RegPasswordFeildBy).SendKeys(donorPassword);
+            fillText(RegPasswordFeildBy, donorPassword);
+
         }
         public void ClickRegistarDonorButton()
         {
-            _driver.FindElement(ReggistarButtonBy).Click();
+            click(ReggistarButtonBy);
         }
         //user personal details
         public void SendDonorName(string donorName)
         {         
  
-            _driver.FindElement(RegistarFieldNameBy).SendKeys(donorName);
+            fillText(RegistarFieldNameBy,donorName);
         }
         public void SendDonorFamily(string donorFamily)
         {
-            _driver.FindElement(RegistarFieldFamilyBy).SendKeys(donorFamily);
+            fillText(RegistarFieldFamilyBy, donorFamily);
+
         }
         public void SendDonorPhoneNumber(string donorPhoneNumber)
         {
-            _driver.FindElement(RegistarFieldPhoneBy).SendKeys(donorPhoneNumber);
+            fillText(RegistarFieldPhoneBy, donorPhoneNumber);
+
         }
         public void ClickBlodType()
         {
-            _driver.FindElement(BlodTypeOBy).Click();
+            click(BlodTypeOBy);
         }
         public void ClickRegistarDonorCompleteButton()
         {
-            _driver.FindElement(ReggistarCompleteButtonBy).Click();
+            click(ReggistarCompleteButtonBy);
         }
     }
 }

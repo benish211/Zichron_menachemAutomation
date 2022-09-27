@@ -88,10 +88,12 @@ namespace InfrastructureAutomationLogin.Tests
                 "The Gmail appointmate recived",
                 "The Gmail appointmate NOT recive");
         }
+        [TearDown]
             public void AfterTest()
         {
 
             driver.Close();
+           
         }
     }
 }

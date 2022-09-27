@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using InfrastructureAutomationLogin.BaseData;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ZichronMenachemAutomation.PageObject.DonorPages
 {
-    public class DonorDonatePage
+    public class DonorDonatePage : BasePage
     {
         By WelcomeDonorBy = By.XPath("//div[@class='BookDonationScreen_name__8C88e']");
         By RegistrationDonorSuccessBy = By.XPath("//div[@class='BookDonationScreen_welcomeText__wDNC-']");
@@ -21,13 +22,13 @@ namespace ZichronMenachemAutomation.PageObject.DonorPages
 
         //Gmail
         By GmailInputUserNameBy = By.XPath("//input[@id='identifierId']");
-        By GmailClickNextButtonBy = By.XPath("//span[contains(text(),'Weiter')]");
-        By GmailInputPasswordBy = By.XPath("//input[@name='password']");
+        By GmailClickNextButtonBy = By.XPath("//span[contains(text(),'Next')]");
+        By GmailInputPasswordBy = By.XPath("//input[@name='Passwd']");
       
 
 
         IWebDriver _driver;
-        public DonorDonatePage(IWebDriver driver)
+        public DonorDonatePage(IWebDriver driver) : base(driver)
         {
             _driver = driver;
             { }
@@ -35,17 +36,19 @@ namespace ZichronMenachemAutomation.PageObject.DonorPages
 
         public void RegistrationDonorSuccess()
         {
-            _driver.FindElement(RegistrationDonorSuccessBy);
+            waitForElementVisibility(RegistrationDonorSuccessBy);
         }
 
         public void ClickAppointemtTime(string time)
+
         {
+
             _driver.FindElement(By.XPath($"(//div[@class='Picker_pickerButton__CuvZS'][normalize-space()='{time}'])[1]")).Click();
         }
 
         public void DonorCompleteMatchQuestionnaire()
         {
-            _driver.FindElement(DonorCompleteMatchquestionnaireBy).Click();
+            click(DonorCompleteMatchquestionnaireBy);
         }
 
         public void ClickRemoveQueue()
@@ -84,7 +87,7 @@ namespace ZichronMenachemAutomation.PageObject.DonorPages
         }
         public void sendGmailPassword(string gmailDonorPassword)
         {
-            _driver.FindElement(GmailInputPasswordBy).SendKeys(gmailDonorPassword);
+            fillText(GmailInputPasswordBy, gmailDonorPassword);
         }
         public void navigateToGmailInbox()
         {

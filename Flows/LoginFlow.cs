@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Test.Tests;
 using ZichronMenachemAutomation.PageObject.DonorPages;
 using ZichronMenachemAutomation.PageObject.RegistarPages;
 
@@ -30,14 +31,14 @@ namespace InfrastructureAutomationLogin.Flows
         public void LoginDonor(string userName, string password)
         {
 
-            Thread.Sleep(3000);
+     //       Thread.Sleep(3000);
+            
             _driver.Navigate().GoToUrl("https://zm-donor-qa.web.app/login");
 
             // the login moved to donate page
-           
 
-            Thread.Sleep(3000);
 
+            //     Thread.Sleep(3000);
             loginDonorPage.SendUsername(userName);
             loginDonorPage.SendSendPassword(password);
             loginDonorPage.ClickLogin();

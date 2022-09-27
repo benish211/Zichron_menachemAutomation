@@ -23,7 +23,8 @@ namespace ZichronMenachemAutomation.Flows
 
         public void CreateAppointment()
         {
-            Thread.Sleep(9000);
+    //        Thread.Sleep(9000);
+            
             cordinatoorSchedulePage.ClickAddAppointment();
         }
 

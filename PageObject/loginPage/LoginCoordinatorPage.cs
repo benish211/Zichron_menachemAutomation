@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using InfrastructureAutomationLogin.BaseData;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +8,17 @@ using System.Threading.Tasks;
 
 namespace InfrastructureAutomationLogin.PageObject
 {
-    public class LoginCoordinatorPage
+    public class LoginCoordinatorPage:BasePage
     {
         By buttonLoginBy = By.XPath("//div[@class='Button_buttonText__gCGff']");
         By userNameBy = By.XPath("//input[@id='mui-1']");
         By passwordBy = By.XPath("//input[@id='mui-2']");
 
         IWebDriver _driver;
-        public LoginCoordinatorPage(IWebDriver driver)
+        public LoginCoordinatorPage(IWebDriver driver) : base(driver)
         {
             _driver = driver;
+            { }
         }
         public void SendUsername(string username)
         {

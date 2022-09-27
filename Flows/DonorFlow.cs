@@ -31,23 +31,23 @@ namespace ZichronMenachemAutomation.Flows
         {
             _driver.Navigate().GoToUrl("https://zm-donor-qa.web.app/donate");
 
-            Thread.Sleep(3000);
+         //   Thread.Sleep(3000);
             donorRegistarPages.ClickEntryButton();
             donorRegistarPages.ClickRegistarButton();
 
-            Thread.Sleep(4000);
+           // Thread.Sleep(4000);
             donorRegistarPages.SendDonorEmail(donorEmail);
             donorRegistarPages.SendDonorPassword(donorPassword);
             donorRegistarPages.ClickRegistarDonorButton();
 
-            Thread.Sleep(10000);
+         //   Thread.Sleep(10000);
             donorRegistarPages.SendDonorName(donorName);
             donorRegistarPages.SendDonorFamily(donorFamily);
             donorRegistarPages.SendDonorPhoneNumber(donorPhoneNumber);
             donorRegistarPages.ClickBlodType();
             donorRegistarPages.ClickRegistarDonorCompleteButton();
 
-            Thread.Sleep(9000);
+         //   Thread.Sleep(9000);
             donorDonatePage.RegistrationDonorSuccess();
         }
 
@@ -56,7 +56,7 @@ namespace ZichronMenachemAutomation.Flows
             Thread.Sleep(3000);
 
             donorDonatePage.ClickAppointemtTime(time);
-            Thread.Sleep(3000);
+         //   Thread.Sleep(3000);
 
             donorDonatePage.DonorCompleteMatchQuestionnaire();
 

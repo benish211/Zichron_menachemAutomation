@@ -1,4 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using InfrastructureAutomationLogin.BaseData;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace InfrastructureAutomationLogin.PageObject
 {
-    public class LoginDonorPage
+    public class LoginDonorPage: BasePage
     {
         By buttonLoginBy = By.XPath("//*[contains(text(),'התחברות')]");
         By LoginEmailFeildBy = By.XPath("//input[@type='email']");
@@ -15,24 +18,24 @@ namespace InfrastructureAutomationLogin.PageObject
         By IconBy = By.Id("lottie");
 
         IWebDriver _driver;
-        public LoginDonorPage(IWebDriver driver)
+
+        public LoginDonorPage(IWebDriver driver):base(driver)
         {
             _driver = driver;
+            { }
         }
         public void SendUsername(string username)
         {
-            _driver.FindElement(LoginEmailFeildBy).SendKeys(username);
+            fillText(LoginEmailFeildBy, username);
 
         }
         public void SendSendPassword(string password)
         {
-            _driver.FindElement(LoginPasswordFeildBy).SendKeys(password);
-
+            fillText(LoginPasswordFeildBy, password);
         }
         public void ClickLogin()
         {
-            _driver.FindElement(buttonLoginBy).Click();
-
+            click(buttonLoginBy);
         }
 
         public bool isIconDispay()
