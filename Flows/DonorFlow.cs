@@ -65,12 +65,20 @@ namespace ZichronMenachemAutomation.Flows
 
         public void donorRemoveQueue()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(4000);
+
+            donorDonatePage.ClicGoItButton();
+           
+            donorDonatePage.OutherOptionsScrollDownList();
             donorDonatePage.ClickRemoveQueue();
             donorDonatePage.ClickApproveRemoveQueue();
 
         }
 
+        public void NavigateToDonorSite()
+        {
+            donorDonatePage.navigateTodonationPage();
+        }
 
         //gmail flow
         public void VarificationEmailAppointment(string gmailDonorUserName, string gmailDonorPassword,
@@ -96,6 +104,16 @@ namespace ZichronMenachemAutomation.Flows
             donorDonatePage.isEmailAppointmantRecive(dateAppointmant);
             return true;
         }
+
+        public bool IsAppointemtTimeDisplay(string time)
+        {
+            Thread.Sleep(4000);
+            donorDonatePage.IsAppointemtTimeDisplay(time);
+            return true;
+        }
+
+
+
 
     }
 

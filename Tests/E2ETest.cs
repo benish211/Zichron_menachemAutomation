@@ -87,6 +87,19 @@ namespace InfrastructureAutomationLogin.Tests
             Assert.True(isGemailAccept,
                 "The Gmail appointmate recived",
                 "The Gmail appointmate NOT recive");
+
+            donorFlow.NavigateToDonorSite();
+
+            donorFlow.donorRemoveQueue();
+            //test if the appointement remove - and the appointement display again on the page
+            bool isAppointmantDisplay =
+                donorFlow.IsAppointemtTimeDisplay(timeAppointment);
+
+            Assert.True(isGemailAccept,
+                "The appointment removed",
+                "The appointment is NOT removed");
+
+
         }
         [TearDown]
             public void AfterTest()
